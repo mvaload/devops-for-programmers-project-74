@@ -9,3 +9,12 @@ start:
 
 test:
 	npm -s test
+
+install:
+	npm install
+
+setup:
+	docker-compose run make install
+
+build:
+	docker build -f Dockerfile.production -t mvaload/devops-for-programmers-project-74:latest
