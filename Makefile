@@ -2,30 +2,23 @@ compose-start:
 	docker-compose up --abort-on-container-exit
 
 compose-test:
-	docker-compose -f docker-compose.yml up --abort-on-container-exit
+	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
-start:
-	npm start
+compose-setup: compose-build compose-install
 
-test:
-	npm -s test
+compose-install:
+	docker-compose run --rm app npm install
 
-install:
-	npm install
+compose-build:
+	docker-compose build
 
-setup:
-	docker-compose run make install
+compose-bash:
+	docker-compose run --rm app bash
 
-build:
-	docker build -f Dockerfile.production -t mvaload/devops-for-programmers-project-74:latest
+copy-env:
+	cp -n .env.example .env
 
-compose-ci: compose-ci-build compose-ci-test
+compose-production-build:
+	docker-compose -f docker-compose.yml build
 
-compose-ci-build:
-	docker-compose --file docker-compose.yml build
-
-compose-ci-test:
-	docker-compose --file docker-compose.yml up --abort-on-container-exit
-
-env-prepare:
-	cp -n .env.example .env || true
+ci: copy-env compose-production-build compose-test
