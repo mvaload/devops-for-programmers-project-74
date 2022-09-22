@@ -7,7 +7,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./:/app
+      - ./app:/app
     command: bash -c 'sleep 3 && npm start'
 
   caddy:
