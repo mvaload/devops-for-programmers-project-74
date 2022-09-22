@@ -5,6 +5,12 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile.production
+    environment:
+      DATABASE_HOST: db
+      DATABASE_NAME: postgres
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: password
+
     command: npm test
     depends_on:
       - db
@@ -15,4 +21,3 @@ services:
       POSTGRES_DB: ${DATABASE_NAME}
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
-
