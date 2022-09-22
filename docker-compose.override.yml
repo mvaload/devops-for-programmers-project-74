@@ -9,3 +9,13 @@ services:
       - 3000:3000
     volumes:
       - ./:/app
+
+  caddy:
+    image: caddy:2.6.0-alpine
+    volumes:
+      - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
+    depends_on:
+      - app
+    ports:
+      - 80:80
+      - 443:443
