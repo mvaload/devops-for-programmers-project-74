@@ -4,11 +4,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: make start
     ports:
       - 3000:3000
     volumes:
       - ./:/app
+    command: bash -c 'sleep 3 && make start'
 
   caddy:
     image: caddy:2.6.0-alpine
