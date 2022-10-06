@@ -6,7 +6,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.production
-    restart: always
     command: bash -c 'sleep 3 && npm test'
     depends_on:
       - db

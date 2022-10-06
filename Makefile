@@ -17,7 +17,7 @@ bash:
 copy-env:
 	cp -n .env.example .env
 
-compose-production-build:
+production-build:
 	docker-compose -f docker-compose.yml build
 
-ci: copy-env compose-production-build compose-test
+ci: copy-env production-build test
