@@ -1,18 +1,17 @@
-compose-start:
+start:
 	docker-compose up --abort-on-container-exit
 
-compose-test:
+test:
 	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
-compose-setup: compose-build compose-install
+setup: compose-build compose-install
 
-compose-install:
+install:
 	docker-compose run --rm app npm install
 
-compose-build:
+build:
 	docker-compose build
-
-compose-bash:
+bash:
 	docker-compose run --rm app bash
 
 copy-env:
