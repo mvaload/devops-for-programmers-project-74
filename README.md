@@ -15,11 +15,11 @@ ___
 ____
 #### Run app
 ```
-make compose-setup
-make compose-start
+make setup
+make start
 ```
 #### Run tests
 ```
-make compose-setup
+make setup
 make ci
 ```
