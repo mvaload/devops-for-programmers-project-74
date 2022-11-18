@@ -4,7 +4,7 @@ start:
 test:
 	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
-setup: 
+setup:
 	build install
 
 install:
@@ -22,5 +22,5 @@ copy-env:
 production-build:
 	docker-compose -f docker-compose.yml build
 
-ci: 
+ci:
 	copy-env production-build test
