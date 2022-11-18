@@ -4,7 +4,8 @@ start:
 test:
 	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
-setup: build install
+setup: 
+	build install
 
 install:
 	docker-compose run --rm app npm install
@@ -21,4 +22,5 @@ copy-env:
 production-build:
 	docker-compose -f docker-compose.yml build
 
-ci: production-build test
+ci: 
+	copy-env production-build test

@@ -42,5 +42,5 @@ make start
 #### Run tests
 ```
 make setup
-make ci
+make test
 ```
