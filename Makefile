@@ -22,5 +22,5 @@ copy-env:
 production-build:
 	docker-compose -f docker-compose.yml build
 
-ci:
-	copy-env production-build test
+ci: copy-env production-build test
+
